@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { TasksContainerService } from '../tasks-container.service';
-import { Task, TaskStatus } from '../task.model'
 
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.css'],
-  // providers: [ TasksContainerService ]
 })
-export class TodoFormComponent implements OnInit {
+export class TodoFormComponent {
 
   todayDate = new Date().toISOString().split('T')[0];
   taskForm: FormGroup;
@@ -20,9 +18,6 @@ export class TodoFormComponent implements OnInit {
       description: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       dueDate: new FormControl()
     })
-  }
-
-  ngOnInit(): void {
   }
 
   get description() {

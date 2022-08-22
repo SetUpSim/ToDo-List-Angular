@@ -16,7 +16,6 @@ export class TaskItemComponent {
 
   dragStartHandler(event: DragEvent) {
     if (event.dataTransfer) {
-      console.log("drag start");
       event.dataTransfer.setData("text/plain", (event.target as HTMLElement).id);
       event.dataTransfer.dropEffect = "move";
     }

@@ -6,7 +6,7 @@
     </ul>
     <h2>Completed tasks</h2>
     <ul id="done-tasks" (dragover)="$event.preventDefault()" (dragenter)="dragEnterHandler($event)" (dragleave)="dragLeaveHandler($event)"
-    (drop)="dropHandler($event)" >
+    (drop)="dropHandler($event)">
         <app-task-item *ngFor="let task of container.doneTasks | async" [task]="task"></app-task-item>
     </ul>
 </div>
