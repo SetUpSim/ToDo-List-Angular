@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+}
+
+.form-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-outer {
+    list-style-type: none;
+    padding: 5px;
+    margin-top: -10px;
+    justify-content: space-between;
+}
+
+.flex-outer li {
+    display: flex;
+    margin: 10px 5px;
+    justify-content: space-between;
+}
+
+.flex-outer li input {
+    min-width: 50%;
+    padding-left: 5px;
+}
+
+.flex-outer li button {
+    width: 90%;
+    max-width: 200px;
+    margin: auto;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px;
+}
+
+.alert {
+    font-size: 0.8rem;
+    font-family: monospace;
+    color: rgba(222, 52, 52, 0.482);
+}
+
+/* .alert-input {
+    background-color: rgba(222, 52, 52, 0.482);
+} */

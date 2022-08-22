@@ -1,0 +1,10 @@
+<div class="tasks-container">
+    <h2>Pending tasks</h2>
+    <ul id="pending-tasks">
+        <app-task-item *ngFor="let task of container.pendingTasks | async" [task]="task" ></app-task-item>
+    </ul>
+    <h2>Completed tasks</h2>
+    <ul id="done-tasks" (drop)="dropHandler($event)" (dragenter)="dragEnterHandler($event)">
+        <app-task-item *ngFor="let task of container.doneTasks | async" [task]="task"></app-task-item>
+    </ul>
+</div>

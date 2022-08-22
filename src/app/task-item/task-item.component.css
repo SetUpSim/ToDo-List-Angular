@@ -1,0 +1,20 @@
+.task-item { 
+    list-style-type: none;
+    border: black 1px solid;
+    border-radius: 2px;
+    padding: 5px 7px;
+}
+
+.item-deadline {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    text-align: right;
+}
+
+.task-pending {
+    background-color: rgba(126, 113, 240, 0.484);
+}
+
+.task-done {
+    background-color: rgba(138, 240, 113, 0.484);
+}
