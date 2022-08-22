@@ -4,11 +4,11 @@
       <ul class="flex-outer">
         <li>
           <label for="description">Description</label>
-          <input name="description" id="description" placeholder="Meet John" formControlName="description" required (input)="showHint = false">
+          <input name="description" id="description" placeholder="Meet John" formControlName="description" (input)="showHint = false">
         </li>
         <li>
             <p class="alert" *ngIf="showHint">
-                To Do description is required
+                To Do description is required and has to be between 5 and 30 symbols long
             </p>
         </li>
         <li>

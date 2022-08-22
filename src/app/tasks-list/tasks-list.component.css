@@ -1,13 +1,19 @@
 #pending-tasks {
     border: 2px solid rgba(126, 113, 240, 0.484);
-    padding: 10px;
 }
 
 #done-tasks {
     border: 2px solid rgba(146, 230, 149, 0.436);
-    padding: 10px;
 }
 
-.dragover {
-    background-color: black;
+.draggedover#pending-tasks {
+    background-color: rgba(126, 113, 240, 0.3);
+}
+
+.draggedover#done-tasks {
+    background-color: rgba(146, 230, 149, 0.3);
+}
+
+ul {
+    padding: 20px;
 }

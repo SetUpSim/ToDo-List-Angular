@@ -9,4 +9,5 @@
 .app-container * {
     min-width: 40vw;
     background-color: rgb(240, 245, 255);
+    padding: 10px;
 }

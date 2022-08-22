@@ -1,7 +1,8 @@
-<li [id]="task.id" class="task-item" [ngClass]="task.status === 0 ? 'task-pending' : 'task-done'" 
+<li [id]="task.id" class="task-item" [ngClass]="task.status == 0 ? 'task-pending' : 'task-done'" 
         draggable="true" (dragstart)="dragStartHandler($event)">
     <div>
         <p class="item-description">{{task.description}}</p>
-        <p class="item-deadline">{{task.dueDate ? ("Deadline is " + task.dueDate) : "No deadline"}}</p>
+        <p *ngIf="task.status == 0" class="item-deadline">{{task.dueDate ? ("Deadline is " + task.dueDate) : "No deadline"}}</p>
+        <p *ngIf="task.status == 1" class="item-done-time">Done at {{task.doneDate ? task.doneDate.toISOString().split("T")[0] : "undefined"}}</p>
     </div>
 </li>

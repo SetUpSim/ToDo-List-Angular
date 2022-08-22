@@ -11,7 +11,7 @@ export class TaskItemComponent {
   @Input() task: Task;
   
   constructor() {
-    this.task = {id:0, description: "Default task", dueDate: undefined, status: 0};
+    this.task = {id:0, description: "Default task", dueDate: undefined, doneDate: undefined, status: 0};
   }
 
   dragStartHandler(event: DragEvent) {

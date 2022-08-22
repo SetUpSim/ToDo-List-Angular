@@ -17,7 +17,7 @@ export class TodoFormComponent implements OnInit {
 
   constructor(private container: TasksContainerService) { 
     this.taskForm = new FormGroup({
-      description: new FormControl("", [Validators.required, Validators.minLength(5)]),
+      description: new FormControl("", [Validators.required, Validators.minLength(5), Validators.maxLength(30)]),
       dueDate: new FormControl()
     })
   }

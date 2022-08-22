@@ -21,6 +21,7 @@ export class TasksContainerService {
         id: id,
         description: description,
         dueDate: due,
+        doneDate: undefined,
         status: TaskStatus.Pending
       }
       );
@@ -28,7 +29,6 @@ export class TasksContainerService {
   }
 
   markTaskDone(id: number) {
-    
     const doneTask = this.pendingTasksSource.getValue().find(
       task => task.id === id
     );
@@ -37,24 +37,39 @@ export class TasksContainerService {
       const toEmitPending = this.pendingTasksSource.getValue().filter(task => task !== doneTask);
       const toEmitDone = this.doneTasksSource.getValue();
       doneTask.status = TaskStatus.Done;
+      doneTask.doneDate = new Date();
       toEmitDone.push(doneTask);
       this.pendingTasksSource.next(toEmitPending);
       this.doneTasksSource.next(toEmitDone);   
     }
   }
 
-  // markTaskPending(id: number) {
-  //   const task = this.tasks.find(task => task.id === id);
-  //   if (task) {
-  //     task.status = TaskStatus.Pending;    
-  //   }
-  // }
+  markTaskPending(id: number) {
+    const pendingTask = this.doneTasksSource.getValue().find(
+      task => task.id === id
+    );
 
-  // deleteTask(id: number) {
-  //   const task = this.tasks.find(task => task.id === id);
-  //   if (task) {
-  //     const index = this.tasks.indexOf(task);
-  //     delete this.tasks[index];
-  //   }
-  // }
+    if (pendingTask) {
+      const toEmitDone = this.doneTasksSource.getValue().filter(task => task !== pendingTask);
+      const toEmitPending = this.pendingTasksSource.getValue();
+      pendingTask.status = TaskStatus.Pending;
+      toEmitPending.push(pendingTask);
+      this.pendingTasksSource.next(toEmitPending);
+      this.doneTasksSource.next(toEmitDone);   
+    }
+  }
+
+  deleteTask(id: number) {
+    const pending = this.pendingTasksSource.getValue().find(task => task.id === id);
+    if (pending) {
+      const toEmitPending = this.pendingTasksSource.getValue().filter(task => task.id != id);
+      this.pendingTasksSource.next(toEmitPending);
+    }
+
+    const done = this.doneTasksSource.getValue().find(task => task.id === id);
+    if (done) {
+      const toEmitDone = this.doneTasksSource.getValue().filter(task => task.id != id);
+      this.pendingTasksSource.next(toEmitDone);
+    }
+  }
 }

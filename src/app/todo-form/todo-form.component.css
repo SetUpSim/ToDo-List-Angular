@@ -39,8 +39,5 @@ h1 {
     font-size: 0.8rem;
     font-family: monospace;
     color: rgba(222, 52, 52, 0.482);
+    word-wrap: normal;
 }
-
-/* .alert-input {
-    background-color: rgba(222, 52, 52, 0.482);
-} */

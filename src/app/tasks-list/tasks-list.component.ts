@@ -26,19 +26,22 @@ export class TasksListComponent implements OnInit {
   dragEnterHandler(event: DragEvent) {
     event.preventDefault();
     (event.target as HTMLElement).classList.add("draggedover");
-    console.log("Drag entered");
   }
 
   dragLeaveHandler(event: DragEvent) {
     event.preventDefault();
     (event.target as HTMLElement).classList.remove("draggedover");
-    console.log("Drag left");
   }
 
   dropHandler(event: DragEvent) {
     event.preventDefault();
-    console.log("Drop in " + (event.target as HTMLElement).id);  
-    this.container.markTaskDone(+event.dataTransfer?.getData("text/plain")!)
+    const target = event.target as HTMLElement;
+    target.classList.remove("draggedover");
+    if (target.id == 'done-tasks') {
+      this.container.markTaskDone(+event.dataTransfer?.getData("text/plain")!)
+    } else {
+      this.container.markTaskPending(+event.dataTransfer?.getData("text/plain")!)
+    }
   }
 
 }
