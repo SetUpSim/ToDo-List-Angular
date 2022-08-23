@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksContainerService } from '../tasks-container.service';
-import { Task } from '../task.model';
 
 @Component({
   selector: 'app-tasks-list',
@@ -9,15 +8,9 @@ import { Task } from '../task.model';
 })
 
 export class TasksListComponent implements OnInit {
-  pendingTasks: Task[] = [];
-  doneTasks: Task[] = [];
-
   constructor(public container: TasksContainerService) {}
 
   ngOnInit(): void {
-    this.container.pendingTasks.subscribe((tasks) => {
-      this.pendingTasks = tasks;
-    });
   }
 
   dragEnterHandler(event: DragEvent) {
@@ -31,12 +24,9 @@ export class TasksListComponent implements OnInit {
   }
 
   dropHandler(event: DragEvent) {
-    // event.preventDefault();
-    // event.eventPhase;
-    
     let target = event.target as HTMLElement;
     target.classList.remove('draggedover');
-    while (target && target.parentElement && target.nodeName !== "UL") {
+    while (target && target.parentElement && target.nodeName !== "UL") { //???
       target = target.parentElement;
     }
     if (target.id === 'done-tasks') {
