@@ -76,7 +76,7 @@ export class TasksContainerService {
       const toEmitDone = this.doneTasksSource
         .getValue()
         .filter((task) => task.id != id);
-      this.pendingTasksSource.next(toEmitDone);
+      this.doneTasksSource.next(toEmitDone);
     }
   }
 }
