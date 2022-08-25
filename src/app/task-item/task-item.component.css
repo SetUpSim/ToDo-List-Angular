@@ -4,13 +4,14 @@
     border-radius: 2px;
     padding: 5px 7px;
     margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.item-deadline,
-.item-done-time {
-    font-size: 0.7rem;
-    opacity: 0.8;
-    text-align: right;
+.task-item * {
+    
 }
 
 .task-pending {
@@ -19,4 +20,20 @@
 
 .task-done {
     background-color: rgba(138, 240, 113, 0.484);
+}
+
+#item-description {
+    flex-basis: 70%;
+}
+
+#item-delete {
+    font-size: 0.9rem;
+}
+
+#item-deadline,
+#item-done-time {
+    flex-basis: 95%;
+    font-size: 0.7rem;
+    opacity: 0.8;
+    text-align: right;
 }

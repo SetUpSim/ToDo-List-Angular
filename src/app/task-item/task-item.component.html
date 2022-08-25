@@ -1,8 +1,9 @@
-<li [id]="task.id" class="task-item" [ngClass]="task.status == 0 ? 'task-pending' : 'task-done'" 
-        draggable="true" (dragstart)="dragStartHandler($event)">
-    <div>
-        <p class="item-description">{{task.description}}</p>
-        <p *ngIf="task.status == 0" class="item-deadline">{{task.dueDate ? ("Deadline is " + task.dueDate) : "No deadline"}}</p>
-        <p *ngIf="task.status == 1" class="item-done-time">Done at {{task.doneDate ? task.doneDate.toISOString().split("T")[0] : "undefined"}}</p>
-    </div>
+<li [id]="task.id" class="task-item" [ngClass]="task.status == 0 ? 'task-pending' : 'task-done'" draggable="true"
+    (dragstart)="dragStartHandler($event)">
+    <p id="item-description">{{task.description}}</p>
+    <button id="item-delete" (click)="onDeleteItem($event)">Delete task</button>
+    <p *ngIf="task.status == 0" id="item-deadline">{{task.dueDate ? ("Deadline is " + task.dueDate) : "No
+        deadline"}}</p>
+    <p *ngIf="task.status == 1" id="item-done-time">Done at {{task.doneDate ?
+        task.doneDate.toISOString().split("T")[0] : "undefined"}}</p>
 </li>
