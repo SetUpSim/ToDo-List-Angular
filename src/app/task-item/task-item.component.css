@@ -10,10 +10,6 @@
     align-items: center;
 }
 
-.task-item * {
-    
-}
-
 .task-pending {
     background-color: rgba(126, 113, 240, 0.484);
 }
@@ -36,4 +32,41 @@
     font-size: 0.7rem;
     opacity: 0.8;
     text-align: right;
+}
+
+
+#icons-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+#icons-bar * {
+    margin-left: 4px;
+}
+
+#icons-bar:first-child {
+    margin-left: 0;
+}
+
+.icon-btn {
+    height: 1rem;
+    width: 1rem;
+    background-size: contain;
+}
+
+#confirm-icon {
+    background-image: url("../../assets/icons/confirm.ico");
+
+}
+
+#reject-icon {
+    background-image: url("../../assets/icons/reject.ico");
+}
+
+#edit-icon {
+    background-image: url("../../assets/icons/edit.ico");
+}
+
+#delete-icon {
+    background-image: url("../../assets/icons/delete.ico");
 }

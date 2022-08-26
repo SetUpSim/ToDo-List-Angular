@@ -1,7 +1,13 @@
 <li [id]="task.id" class="task-item" [ngClass]="task.status == 0 ? 'task-pending' : 'task-done'" draggable="true"
     (dragstart)="dragStartHandler($event)">
     <p id="item-description">{{task.description}}</p>
-    <button id="item-delete" (click)="onDeleteItem($event)">Delete task</button>
+    <!-- <button id="item-delete" (click)="onDeleteItem($event)" type="button">Delete task</button> -->
+    <div id="icons-bar">
+        <i *ngIf="editMode" id="confirm-icon" class="icon-btn" role="button"></i>
+        <i *ngIf="editMode" id="reject-icon" class="icon-btn" role="button"></i>
+        <i *ngIf="!editMode" id="edit-icon" class="icon-btn" role="button"></i>
+        <i id="delete-icon" class="icon-btn" role="button"></i>
+    </div>
     <p *ngIf="task.status == 0" id="item-deadline">{{task.dueDate ? ("Deadline is " + task.dueDate) : "No
         deadline"}}</p>
     <p *ngIf="task.status == 1" id="item-done-time">Done at {{task.doneDate ?

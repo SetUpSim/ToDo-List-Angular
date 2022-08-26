@@ -9,6 +9,7 @@ import { TasksContainerService } from '../tasks-container.service';
 })
 export class TaskItemComponent {
   @Input() task: Task;
+  editMode = true;
 
   constructor(public container: TasksContainerService) {
     this.task = {
