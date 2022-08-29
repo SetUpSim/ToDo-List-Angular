@@ -6,7 +6,7 @@
         <i *ngIf="editMode" id="confirm-icon" class="icon-btn" role="button"></i>
         <i *ngIf="editMode" id="reject-icon" class="icon-btn" role="button"></i>
         <i *ngIf="!editMode" id="edit-icon" class="icon-btn" role="button"></i>
-        <i id="delete-icon" class="icon-btn" role="button"></i>
+        <i id="delete-icon" class="icon-btn" role="button" (click)="onDeleteItem($event)"></i>
     </div>
     <p *ngIf="task.status == 0" id="item-deadline">{{task.dueDate ? ("Deadline is " + task.dueDate) : "No
         deadline"}}</p>

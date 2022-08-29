@@ -22,7 +22,10 @@ export class TaskItemComponent {
   }
 
   onDeleteItem(event: Event) {
-    this.container.deleteTask(this.task.id);
+    event.stopPropagation();
+    if (confirm('Are you sure you want to delete this task?')) {
+      this.container.deleteTask(this.task.id);
+    }
   }
 
   dragStartHandler(event: DragEvent) {
