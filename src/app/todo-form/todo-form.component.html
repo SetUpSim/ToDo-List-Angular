@@ -17,7 +17,7 @@
         <input type="date" name="due_to" id="duedate" formControlName="dueDate" [min]="todayDate" />
       </li>
       <li>
-        <button type="submit">Add To Do</button>
+        <button type="submit" [disabled]="isInEditMode">Add To Do</button>
       </li>
     </ul>
   </form>
