@@ -5,7 +5,7 @@ import { TasksContainerService } from '../tasks-container.service';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.css'],
+  styleUrls: ['./todo-form.component.scss'],
 })
 export class TodoFormComponent {
 

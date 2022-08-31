@@ -4,7 +4,7 @@ import { TasksContainerService } from '../tasks-container.service';
 @Component({
   selector: 'app-tasks-list',
   templateUrl: './tasks-list.component.html',
-  styleUrls: ['./tasks-list.component.css'],
+  styleUrls: ['./tasks-list.component.scss'],
 })
 export class TasksListComponent implements OnInit {
   @Output() mediateToggleEditModeEvent = new EventEmitter<boolean>();
