@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TasksContainerService } from '../tasks-container.service';
 
 @Component({
@@ -6,12 +6,12 @@ import { TasksContainerService } from '../tasks-container.service';
   templateUrl: './tasks-list.component.html',
   styleUrls: ['./tasks-list.component.css'],
 })
-
 export class TasksListComponent implements OnInit {
+  @Output() mediateToggleEditModeEvent = new EventEmitter<boolean>();
+
   constructor(public container: TasksContainerService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   dragEnterHandler(event: DragEvent) {
     event.preventDefault();
@@ -26,14 +26,12 @@ export class TasksListComponent implements OnInit {
   dropHandler(event: DragEvent) {
     let target = event.target as HTMLElement;
     target.classList.remove('draggedover');
-    while (target && target.parentElement && target.nodeName !== "UL") { //???
+    while (target && target.parentElement && target.nodeName !== 'UL') {
       target = target.parentElement;
     }
     if (target.id === 'done-tasks') {
-      this.container.markTaskDone(
-        +event.dataTransfer?.getData('text/plain')!
-      );
-    } else if (target.id === 'pending-tasks'){
+      this.container.markTaskDone(+event.dataTransfer?.getData('text/plain')!);
+    } else if (target.id === 'pending-tasks') {
       this.container.markTaskPending(
         +event.dataTransfer?.getData('text/plain')!
       );

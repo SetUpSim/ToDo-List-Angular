@@ -1,4 +1,4 @@
-<div class="app-container">
+<div class="app-container" [class.edit-mode]="isInEditMode">
     <app-todo-form></app-todo-form>
-    <app-tasks-list></app-tasks-list>
+    <app-tasks-list (mediateToggleEditModeEvent)="onChangeEditMode($event)"></app-tasks-list>
 </div>

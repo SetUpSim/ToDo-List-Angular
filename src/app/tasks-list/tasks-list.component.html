@@ -1,14 +1,16 @@
 <div class="tasks-container">
     <h2>Pending tasks</h2>
-    <ul id="pending-tasks" (dragover)="$event.preventDefault()" (dragenter)="dragEnterHandler($event)"
+    <section id="pending-tasks" (dragover)="$event.preventDefault()" (dragenter)="dragEnterHandler($event)"
         (dragleave)="dragLeaveHandler($event)" (drop)="dropHandler($event)">
         <app-task-item *ngFor="let task of container.pendingTasks | async" [task]="task"
-            (click)="container.markTaskDone(task.id)"></app-task-item>
-    </ul>
+            (clickEvent)="container.markTaskDone(task.id)"
+            (toggleEditModeEvent)="this.mediateToggleEditModeEvent.emit($event)"></app-task-item>
+    </section>
     <h2>Completed tasks</h2>
-    <ul id="done-tasks" (dragover)="$event.preventDefault()" (dragenter)="dragEnterHandler($event)"
+    <section id="done-tasks" (dragover)="$event.preventDefault()" (dragenter)="dragEnterHandler($event)"
         (dragleave)="dragLeaveHandler($event)" (drop)="dropHandler($event)">
         <app-task-item *ngFor="let task of container.doneTasks | async" [task]="task"
-            (click)="container.markTaskPending(task.id)"></app-task-item>
-    </ul>
+            (clickEvent)="container.markTaskPending(task.id)"
+            (toggleEditModeEvent)="this.mediateToggleEditModeEvent.emit($event)"></app-task-item>
+    </section>
 </div>
