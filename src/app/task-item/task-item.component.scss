@@ -1,0 +1,97 @@
+$confirm-icon-url: url("../../assets/icons/confirm.ico");
+$reject-icon-url: url("../../assets/icons/reject.ico");
+$edit-icon-ulr: url("../../assets/icons/edit.ico");
+$delete-icon-url: url("../../assets/icons/delete.ico");
+
+$task-pending-bg-color: rgba(126, 113, 240, 0.484);
+$task-done-bg-color: rgba(138, 240, 113, 0.484);
+
+.task-item {
+  border: black 1px solid;
+  border-radius: 2px;
+  padding: 5px 7px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-pending {
+  background-color: $task-pending-bg-color;
+}
+
+.task-done {
+  background-color: $task-done-bg-color;
+}
+
+#item-description {
+  flex-basis: 70%;
+}
+
+#item-description-input {
+  flex-basis: 70%;
+  margin: 16px 0;
+}
+
+#item-deadline,
+#item-done-time {
+  font-size: 0.7rem;
+  opacity: 0.8;
+  text-align: right;
+}
+
+.item-row-1,
+.item-row-2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item-row-1 {
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    margin-right: 3px !important;
+  }
+}
+
+.item-row-2 {
+  align-items: center;
+  justify-content: flex-end;
+
+  input {
+    margin-left: 3px !important;
+  }
+}
+
+.icons-bar {
+  display: flex;
+  flex-direction: row;
+  margin-left: 3px;
+
+  .icon-btn {
+    margin-left: 4px;
+    height: 1rem;
+    width: 1rem;
+    background-size: contain;
+  }
+
+  :first-child {
+    margin-left: 0;
+  }
+}
+
+#confirm-icon {
+  background-image: $confirm-icon-url;
+}
+
+#reject-icon {
+  background-image: $reject-icon-url;
+}
+
+#edit-icon {
+  background-image: $edit-icon-ulr;
+}
+
+#delete-icon {
+  background-image: $delete-icon-url;
+}

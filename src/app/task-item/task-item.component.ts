@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Task } from '../task.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DateTimeService } from '../datetime.service';
+import { Task, TaskStatus } from '../task.model';
 import { TasksContainerService } from '../tasks-container.service';
 
 @Component({
@@ -11,9 +13,13 @@ export class TaskItemComponent {
   @Input() task: Task;
   @Output() toggleEditModeEvent = new EventEmitter<boolean>(false);
   @Output() clickEvent = new EventEmitter<Event>();
+  editTaskForm: FormGroup;
   isInEditMode = false;
 
-  constructor(public container: TasksContainerService) {
+  constructor(
+    public container: TasksContainerService,
+    public dateTime: DateTimeService
+  ) {
     this.task = {
       id: 0,
       description: 'Default task',
@@ -21,6 +27,14 @@ export class TaskItemComponent {
       doneDate: undefined,
       status: 0,
     };
+    this.editTaskForm = new FormGroup({
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30),
+      ]),
+      date: new FormControl(),
+    });
 
     this.toggleEditModeEvent.subscribe((value) => (this.isInEditMode = value));
   }
@@ -46,7 +60,22 @@ export class TaskItemComponent {
 
   onConfirmEdit(event: Event) {
     event.stopPropagation();
-    this.toggleEditModeEvent.emit(false);
+    if (this.editTaskForm.valid) {
+      const formValue = this.editTaskForm.value;
+      this.task.description = formValue.description;
+      if (this.task.status == TaskStatus.Pending) {
+        this.task.dueDate = formValue.date
+          ? new Date(formValue.date)
+          : undefined;
+      } else {
+        this.task.doneDate = formValue.date
+          ? new Date(formValue.date)
+          : undefined;
+      }
+      this.toggleEditModeEvent.emit(false);
+    } else {
+      alert('Invalid task properties!');
+    }
   }
 
   onRejectEdit(event: Event) {

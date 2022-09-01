@@ -1,0 +1,28 @@
+$bg-color: rgba(240, 245, 255);
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+  background-color: rgba($bg-color, 0.8);
+  width: 100vw;
+
+  h1 {
+    text-align: center;
+  }
+
+  > * {
+    width: 60vw;
+    background-color: $bg-color;
+    padding: 10px;
+  }
+}
+
+.app-container.edit-mode {
+  app-todo-form,
+  .task-item:not(.being-edited) {
+    pointer-events: none;
+    opacity: 0.6 !important;
+  }
+}

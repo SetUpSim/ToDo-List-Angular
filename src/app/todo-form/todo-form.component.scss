@@ -1,0 +1,47 @@
+$alert-color: rgba(222, 52, 52, 0.482);
+
+.form-container {
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.flex-outer {
+  list-style-type: none;
+  padding: 5px;
+  margin-top: -10px;
+  justify-content: space-between;
+
+  li {
+    display: flex;
+    margin: 10px 5px;
+    justify-content: space-between;
+
+    input {
+      min-width: 50%;
+      padding-left: 5px;
+    }
+
+    button {
+      width: 90%;
+      max-width: 200px;
+      margin: auto;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 5px;
+    }
+  }
+}
+
+.alert {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: $alert-color;
+  word-wrap: normal;
+}

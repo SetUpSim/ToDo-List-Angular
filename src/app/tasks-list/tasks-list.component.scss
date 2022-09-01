@@ -1,0 +1,21 @@
+$pending-color: rgba(126, 113, 240, 0.45);
+$done-color: rgb(146, 230, 149, 0.45);
+
+#pending-tasks {
+  border: 2px solid $pending-color;
+}
+
+#pending-tasks.draggedover {
+  background-color: rgba($pending-color, 0.3);
+}
+
+#done-tasks {
+  border: 2px solid $done-color;
+}
+
+#done-tasks.draggedover {
+  background-color: lighten($done-color, 0.3);
+}
+.tasks-container section {
+  padding: 20px;
+}

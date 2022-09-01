@@ -1,5 +1,4 @@
 <div class="form-container">
-  <h1>To Do List</h1>
   <form [formGroup]="taskForm" (submit)="onAddToDo(taskForm.value)">
     <ul class="flex-outer">
       <li>
@@ -14,7 +13,7 @@
       </li>
       <li>
         <label for="duedate">Should be done until</label>
-        <input type="date" name="due_to" id="duedate" formControlName="dueDate" [min]="todayDate" />
+        <input type="date" name="due_to" id="duedate" formControlName="dueDate" [min]="dateTime.todayDate" />
       </li>
       <li>
         <button type="submit">Add To Do</button>
