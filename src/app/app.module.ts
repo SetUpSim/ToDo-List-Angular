@@ -5,9 +5,7 @@ import { AppComponent } from './app.component';
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TasksContainerService } from './tasks-container.service';
 import { TaskItemComponent } from './task-item/task-item.component';
-import { DateTimeService } from './datetime.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +15,6 @@ import { DateTimeService } from './datetime.service';
     TaskItemComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
-  providers: [TasksContainerService, DateTimeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
