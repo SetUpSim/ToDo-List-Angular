@@ -21,7 +21,7 @@ $bg-color: rgba(240, 245, 255);
 
 .app-container.edit-mode {
   app-todo-form,
-  .task-item:not(.being-edited) {
+  ::ng-deep .task-item:not(.being-edited) {
     pointer-events: none;
     opacity: 0.6 !important;
   }
